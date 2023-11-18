@@ -2,7 +2,7 @@ import { IAuth, ILoginParams, IRegisterParams, IUser } from '@/interfaces';
 import axios from 'axios';
 
 class StrapiService {
-	private URL = 'http://localhost:1337/api';
+	private URL = process.env.NEXT_PUBLIC_STRAPI_API;
 
 	async Login(data: ILoginParams) {
 		return axios.post<IAuth>(`${this.URL}/auth/local`, data);

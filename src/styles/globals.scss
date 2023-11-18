@@ -2,10 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+// vars
+:root {
+	--primary: #00fff1;
+	--primary-dark: #39b2ac;
+}
+
+// changing accent color
+::selection {
+	background: var(--primary-dark);
+}
+input,
+button,
+a,
+textarea {
+	@apply outline-primary-dark;
+}
+
+// some default styles for comfort work =)
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+}
+
+body {
+	@apply min-h-screen;
 }
 
 body,
@@ -13,7 +35,8 @@ input,
 textarea {
 	@apply bg-[#060606] text-white;
 }
-input,
-textarea {
-	@apply py-1 px-3 border border-white text-lg;
+
+// applying font family
+.body {
+	font-family: var(--font-primary);
 }

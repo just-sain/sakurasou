@@ -1,3 +1,15 @@
+export interface IAnimeTitles {
+	list: IAnime[];
+	pagination: IPagination;
+}
+
+interface IPagination {
+	pages: number;
+	current_page: number;
+	items_per_page: number;
+	total_items: number;
+}
+
 // global interfaces
 interface INames {
 	ru: string;

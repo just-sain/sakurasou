@@ -1,5 +1,5 @@
 import { ILoginParams } from '@/interfaces';
-import { MainLayout } from '@/layouts/main.layout';
+import { MainLayout } from '@/layouts/main/main.layout';
 import StrapiService from '@/services/strapi.service';
 import { useMutation } from '@tanstack/react-query';
 import { getCookie, setCookie } from 'cookies-next';

@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { IAnime, IFranchise, ITeam, IYoutube } from '../interfaces';
+import { IAnime, IAnimeTitles, IFranchise, ITeam, IYoutube } from '../interfaces';
 
 class AnilibriaService {
-	private URL = process.env.ANILIBRIA_API;
+	private URL = process.env.NEXT_PUBLIC_ANILIBRIA_API;
 
 	/**
 	 * 
@@ -11,10 +11,10 @@ class AnilibriaService {
 
 	// get FEW titles
 	async getTitlesUpdates() {
-		return axios.get<IAnime[]>(`${this.URL}/title/updates`);
+		return axios.get<IAnimeTitles>(`${this.URL}/title/updates`);
 	}
 	async getTitlesChanges() {
-		return axios.get<IAnime[]>(`${this.URL}/title/changes`);
+		return axios.get<IAnimeTitles>(`${this.URL}/title/changes`);
 	}
 
 	// get ONE title
