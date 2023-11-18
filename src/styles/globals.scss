@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body,
+input,
+textarea {
+	@apply bg-[#060606] text-white;
+}
+input,
+textarea {
+	@apply py-1 px-3 border border-white text-lg;
+}
