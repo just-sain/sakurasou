@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { IAnime, IAnimeTitles, IFranchise, ITeam, IYoutube } from '../interfaces';
 
+interface IGetTitlesUpdates {
+	itemsPerPage?: number;
+	page?: number;
+}
+
 class AnilibriaService {
 	private URL = process.env.NEXT_PUBLIC_ANILIBRIA_API;
 
@@ -10,8 +15,8 @@ class AnilibriaService {
 	 */
 
 	// get FEW titles
-	async getTitlesUpdates(itemsPerPage: number = 10) {
-		return axios.get<IAnimeTitles>(`${this.URL}/title/updates?items_per_page=${itemsPerPage}`);
+	async getTitlesUpdates({ itemsPerPage = 10, page = 1 }: IGetTitlesUpdates) {
+		return axios.get<IAnimeTitles>(`${this.URL}/title/updates?items_per_page=${itemsPerPage}&page=${page}`);
 	}
 	async getTitlesChanges() {
 		return axios.get<IAnimeTitles>(`${this.URL}/title/changes`);
