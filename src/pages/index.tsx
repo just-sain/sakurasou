@@ -1,3 +1,4 @@
+import { Pagination } from '@/components/pagination';
 import { IAnimeTitles } from '@/interfaces';
 import { MainLayout } from '@/layouts/main/main.layout';
 import anilibriaService from '@/services/anilibria.service';
@@ -10,8 +11,6 @@ interface IHomePage {
 }
 
 const HomePage: FC<IHomePage> = ({ titlesUpdates }) => {
-	console.log(titlesUpdates.list);
-
 	return (
 		<MainLayout>
 			<main className='px-10 pt-7'>
@@ -20,15 +19,19 @@ const HomePage: FC<IHomePage> = ({ titlesUpdates }) => {
 				<br />
 				<br />
 
-				<div className='grid grid-cols-3 gap-x-4 gap-y-8'>
+				<Pagination currentPage={titlesUpdates.pagination.current_page} pages={titlesUpdates.pagination.pages} />
+
+				<br />
+
+				<div className='grid grid-cols-5 max-lg:grid-cols-3 gap-x-12 max-md:gap-x-4  gap-y-8'>
 					{titlesUpdates.list.map(title => (
-						<div key={title.id}>
+						<div key={title.id} className=''>
 							<div className='relative select-none'>
 								<picture>
 									{Object.values(title.posters).map((rez, i) => (
 										<source key={i} srcSet={photoUrl + rez.url} />
 									))}
-									<img className='rounded-lg' src={photoUrl + title.posters.original.url} alt={title.names.en} />
+									<img className='rounded-lg w-full h-auto' src={photoUrl + title.posters.original.url} alt={title.names.en} />
 								</picture>
 
 								<div className='absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[100%] leading-none py-0.5 px-2.5 bg-primary-dark text-white'>
@@ -40,6 +43,16 @@ const HomePage: FC<IHomePage> = ({ titlesUpdates }) => {
 						</div>
 					))}
 				</div>
+
+				<br />
+
+				<Pagination currentPage={titlesUpdates.pagination.current_page} pages={titlesUpdates.pagination.pages} />
+
+				<br />
+				<br />
+
+				<div>Все страницы: {titlesUpdates.pagination.pages}</div>
+				<div>Текущая страница: {titlesUpdates.pagination.current_page}</div>
 			</main>
 		</MainLayout>
 	);

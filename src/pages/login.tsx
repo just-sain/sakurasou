@@ -3,6 +3,7 @@ import { MainLayout } from '@/layouts/main/main.layout';
 import StrapiService from '@/services/strapi.service';
 import { useMutation } from '@tanstack/react-query';
 import { getCookie, setCookie } from 'cookies-next';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -74,6 +75,8 @@ const LoginPage: FC = () => {
 					<button className='px-8 py-2 bg-slate-700' type='submit'>
 						Войти
 					</button>
+
+					<Link href='/register'>Зарег</Link>
 				</form>
 			</main>
 		</MainLayout>

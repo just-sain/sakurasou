@@ -10,8 +10,8 @@ class AnilibriaService {
 	 */
 
 	// get FEW titles
-	async getTitlesUpdates() {
-		return axios.get<IAnimeTitles>(`${this.URL}/title/updates`);
+	async getTitlesUpdates(itemsPerPage: number = 10) {
+		return axios.get<IAnimeTitles>(`${this.URL}/title/updates?items_per_page=${itemsPerPage}`);
 	}
 	async getTitlesChanges() {
 		return axios.get<IAnimeTitles>(`${this.URL}/title/changes`);
