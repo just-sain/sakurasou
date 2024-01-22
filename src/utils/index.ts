@@ -1,1 +1,2 @@
-export * from './delCopy';
+export * from './decode-title-status';
+export * from './del-copy';

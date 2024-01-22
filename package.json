@@ -12,6 +12,7 @@
 		"@tanstack/react-query": "^5.8.4",
 		"@tanstack/react-query-devtools": "^5.8.4",
 		"axios": "^1.6.2",
+		"classnames": "^2.5.1",
 		"cookies-next": "^4.1.0",
 		"lucide-react": "^0.292.0",
 		"next": "14.0.3",

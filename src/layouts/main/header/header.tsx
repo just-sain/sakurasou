@@ -13,15 +13,15 @@ const menu: IMenu[] = [
 
 const Header: FC = () => {
 	return (
-		<header className='px-6 py-4 flex font-secondary'>
-			<div className='w-[57.5%] flex justify-between'>
-				<HeaderMenu menu={menu} className='max-md:hidden' />
-				<HeaderBurger menu={menu} className='max-md:block hidden' />
+		<header
+			className='w-full px-6 py-4 grid font-secondary'
+			style={{ gridTemplateColumns: '1fr auto 1fr' }}>
+			<HeaderMenu menu={menu} className='max-md:hidden' />
+			<HeaderBurger menu={menu} className='max-md:block hidden' />
 
-				<HeaderLogo />
-			</div>
+			<HeaderLogo className='text-center' />
 
-			<HeaderButtons className='w-[42.5%]' />
+			<HeaderButtons />
 		</header>
 	);
 };

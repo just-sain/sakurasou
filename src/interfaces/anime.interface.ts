@@ -14,7 +14,7 @@ interface IPagination {
 interface INames {
 	ru: string;
 	en: string;
-	alternative: null;
+	alternative: string | null;
 }
 interface IPosterResoulution {
 	url: string;
@@ -67,7 +67,7 @@ interface IRelease {
 
 interface IStatus {
 	string: string;
-	code: number;
+	code: number; // 1 - in work, 0 - finish...
 }
 
 interface IPosters {
@@ -109,7 +109,7 @@ interface IPlayer {
 	host: string;
 	is_rutube: boolean;
 	episodes: IEpisodes;
-	list: { [key: number]: IEpisode };
+	list: { [key: string]: IEpisode };
 	rutube: { [key: number]: IEpisode };
 }
 

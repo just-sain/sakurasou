@@ -16,15 +16,23 @@ class AnilibriaService {
 
 	// get FEW titles
 	async getTitlesUpdates({ itemsPerPage = 10, page = 1 }: IGetTitlesUpdates) {
-		return axios.get<IAnimeTitles>(`${this.URL}/title/updates?items_per_page=${itemsPerPage}&page=${page}`);
+		return axios.get<IAnimeTitles>(
+			`${this.URL}/title/updates?items_per_page=${itemsPerPage}&page=${page}`
+		);
 	}
 	async getTitlesChanges() {
 		return axios.get<IAnimeTitles>(`${this.URL}/title/changes`);
 	}
 
 	// get ONE title
-	async getTitle(id: number) {
-		return axios.get<IAnime>(`${this.URL}/title?id=${id}`);
+	async getTitle(idOrCode: number | string) {
+		// if it's id
+		if (typeof idOrCode === 'number') {
+			return axios.get<IAnime>(`${this.URL}/title?id=${idOrCode}&playlist_type=array`);
+		}
+
+		// if it's code
+		return axios.get<IAnime>(`${this.URL}/title?code=${idOrCode}`);
 	}
 	// get ONE random title
 	async getRandomTitle() {
